@@ -16,17 +16,17 @@
     <!-- テキストタイプをbabelに指定 -->
     <script type="text/babel">
     (() => {
-      const name = 'taguchi';
+      function showMessage(){
+        alert('Hello');
+      }
+
       ReactDOM.render(
-        // 複数要素の場合はdivタグの中で指定
-        <div>
-          <p>Hello!</p>
-            <hr/>
-          <p>World</p>
-        </div>,
+        // 新しいJavaScriptではclassは×
+        // 2単語目以降の頭文字を大文字にするキャメルケース
+        <div style={{width:100, height:100, backgroundColor:'tomato'}} onClick={showMessage}></div>,
         // * document.getElementById()であれば中にidを指定(#なしで表記)
         document.getElementById('root')
-      )
+      );
     })();
     </script>
   </body>
