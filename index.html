@@ -20,12 +20,22 @@
         constructor(props){
           super(props);
           this.state = {
-            count: 10
+            count: 0
           };
+          this.countUp = this.countUp.bind(this);
+        }
+        countUp(){
+          // this.stateの値は、constructorの中でしか使えないため、setStateを用いる。
+          // prevStateで保持情報を持ってくる。
+          this.setState(prevState => {
+            return{
+              count: prevState.count + 1
+            };
+          });
         }
         render(){
           return(
-            <li style={{backgroundColor:this.props.color}}>
+            <li style={{backgroundColor:this.props.color}} onClick={this.countUp}>
               {this.state.count}
             </li>
           );
