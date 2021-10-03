@@ -16,13 +16,16 @@
     <!-- テキストタイプをbabelに指定 -->
     <script type="text/babel">
     (() => {
-      const name = 'taguchi';
+      function Counter(props) {
+        // props.color='red';読み取り専用のため、色を変えることはできない
+        return <div>0{props.color}</div>;
+      }
       ReactDOM.render(
-        // 複数要素の場合はdivタグの中で指定
+        // コンポーネントの頭文字は大文字。閉じタグは忘れない。
         <div>
-          <p>Hello!</p>
-            <hr/>
-          <p>World</p>
+          <Counter color="tomato"/>
+          <Counter color="skyblue"/>
+          <Counter color="limegreen"/>
         </div>,
         // * document.getElementById()であれば中にidを指定(#なしで表記)
         document.getElementById('root')
