@@ -16,16 +16,20 @@
     <!-- テキストタイプをbabelに指定 -->
     <script type="text/babel">
     (() => {
-      function Counter(props) {
-        
-        function countUp(){
-          alert('count up!')
+      class Counter extends React.Component{
+        constructor(props){
+          super(props);
+          this.state = {
+            count: 10
+          };
         }
-        return (
-          <li style={{backgroundColor:props.color}} onClick={countUp}>
-            0
-          </li>
-        );
+        render(){
+          return(
+            <li style={{backgroundColor:this.props.color}}>
+              {this.state.count}
+            </li>
+          );
+        }
       }
       ReactDOM.render(
         // コンポーネントの頭文字は大文字。閉じタグは忘れない。
