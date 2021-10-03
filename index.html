@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <title>React Practice</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- React本体 -->
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <!-- Reactの結果をブラウザのDOMに反映するライブラリ -->
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- JSXを使うためのライブラリ(babel) -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
+    <!-- テキストタイプをbabelに指定 -->
     <script type="text/babel">
     (() => {
+      const name = 'taguchi';
       ReactDOM.render(
-        <p>Hello!</p>,
+        // 複数要素の場合はdivタグの中で指定
+        <div>
+          <p>Hello!</p>
+            <hr/>
+          <p>World</p>
+        </div>,
+        // * document.getElementById()であれば中にidを指定(#なしで表記)
         document.getElementById('root')
       )
     })();
